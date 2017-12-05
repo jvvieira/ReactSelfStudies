@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 import { StackNavigator } from "react-navigation";
+import HomeView from "./Views/HomeView"
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
@@ -14,6 +15,10 @@ class HomeScreen extends React.Component {
                 <Button
                     onPress={() => navigate("Chat", { user: "Nice" })}
                     title="Chat with Lucy"
+                />
+                <Button
+                    onPress={() => navigate("Homeview", { user: "Nice" })}
+                    title="Home try"
                 />
             </View>
         );
@@ -38,7 +43,8 @@ class ChatScreen extends React.Component {
 
 export const SimpleApp = StackNavigator({
     Home: { screen: HomeScreen },
-    Chat: { screen: ChatScreen }
+    Chat: { screen: ChatScreen },
+    Homeview: { screen: HomeView }
 });
 
 export default class App extends React.Component {
