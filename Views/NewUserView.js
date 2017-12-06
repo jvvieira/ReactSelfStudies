@@ -11,9 +11,9 @@ import {
 import { StackNavigator } from "react-navigation";
 import styleBasic from "../Styles/Basic";
 
-class LoginView extends React.Component {
+class NewUserView extends React.Component {
     static navigationOptions = {
-        title: "Login",
+        title: "Novo cadastro",
         headerStyle: { backgroundColor: "#0F1826" },
         headerTitleStyle: { color: "#FFEB65" }
     };
@@ -23,8 +23,12 @@ class LoginView extends React.Component {
 
         return (
             <View style={styleBasic.container}>
-                <Text style={styleBasic.notSoBigText}>Logar-se-irá-aqui</Text>
+                <Text style={styleBasic.notSoBigText}>
+                    Cadastrar-se-irá-aqui
+                </Text>
                 <View style={styleBasic.box}>
+                    <Text style={styleBasic.formText}>Nome usuário</Text>
+                    <TextInput style={styleBasic.simpleInput} />
                     <Text style={styleBasic.formText}>Login</Text>
                     <TextInput style={styleBasic.simpleInput} />
                     <Text style={styleBasic.formText}>Senha</Text>
@@ -44,7 +48,7 @@ class LoginView extends React.Component {
                         onPress={() => goBack()}
                         style={styleBasic.butao_X_2}
                     >
-                        <Text style={styleBasic.Text}>LogaMano!</Text>
+                        <Text style={styleBasic.Text}>Realizar cadastro!</Text>
                     </TouchableHighlight>
                 </View>
             </View>
@@ -52,4 +56,4 @@ class LoginView extends React.Component {
     }
 }
 
-export default LoginView;
+export default NewUserView;

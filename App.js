@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { StackNavigator } from "react-navigation";
 import LoginView from "./Views/LoginView";
+import NewUserView from "./Views/NewUserView";
 import styleBasic from "./Styles/Basic";
 
 class HomeScreen extends React.Component {
@@ -21,28 +22,41 @@ class HomeScreen extends React.Component {
         const { navigate } = this.props.navigation;
         return (
             <View style={styleBasic.container}>
-                <Text style={styleBasic.bigText}>O que você deseja fazer?</Text>
-                <TouchableHighlight
-                    onPress={() => navigate("Chat", { user: "Nice" })}
-                    style={styleBasic.butao}
-                >
-                    <Text style={styleBasic.Text}>Novo cadastro</Text>
-                </TouchableHighlight>
-                <TouchableHighlight
-                    onPress={() => navigate("Login")}
-                    style={styleBasic.butao}
-                >
-                    <Text style={styleBasic.Text}>Logar-se</Text>
-                </TouchableHighlight>
+                <View>
+                    <Text style={styleBasic.bigText}>
+                        O que você deseja fazer?
+                    </Text>
+                </View>
+                <View style={styleBasic.container_button}>
+                    <TouchableHighlight
+                        onPress={() => navigate("NewUser")}
+                        style={styleBasic.butao_X_2}
+                    >
+                        <Text style={styleBasic.Text}>Novo cadastro</Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight
+                        onPress={() => navigate("Login")}
+                        style={styleBasic.butao_X_2}
+                    >
+                        <Text style={styleBasic.Text}>Logar-se</Text>
+                    </TouchableHighlight>
+                </View>
             </View>
         );
     }
 }
 
-export const SimpleApp = StackNavigator({
-    Landing: { screen: HomeScreen },
-    Login: { screen: LoginView },
-});
+export const SimpleApp = StackNavigator(
+    {
+        Landing: { screen: HomeScreen },
+        Login: { screen: LoginView },
+        NewUser: { screen: NewUserView }
+    },
+    {
+        mode: "modal",
+        headerMode: "float"
+    }
+);
 
 export default class App extends React.Component {
     render() {
