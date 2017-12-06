@@ -12,14 +12,24 @@ module.exports = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: "#fff",
+        backgroundColor: "#4872b5",
         alignItems: "center",
         justifyContent: "center"
     },
     butao: {
         alignItems: "center",
-        backgroundColor: "#DDDDDD",
+        backgroundColor: "#0F1826",
         padding: 10,
-        margin: 10
+        margin: 5,
+        width: 200
+    },
+    notSoBigText: { fontSize: 13, color: "#fff", padding: 5 },
+    Text: {
+        color: "#FFEB65"
+    },
+    bigText: {
+        fontSize: 20,
+        padding: 15,
+        color: "#fff"
     }
 });
