@@ -1,7 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import {
+    StyleSheet,
+    Text,
+    View,
+    Button,
+    TouchableHighlight,
+} from "react-native";
 import { StackNavigator } from "react-navigation";
-import HomeView from "./Views/HomeView"
+import HomeView from "./Views/HomeView";
+import styleBasic from "./Styles/Basic";
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
@@ -10,16 +17,17 @@ class HomeScreen extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <View>
+            <View style={styleBasic.container}>
                 <Text>Hello, Chat App!</Text>
                 <Button
                     onPress={() => navigate("Chat", { user: "Nice" })}
-                    title="Chat with Lucy"
+                    title="Chat Same Page"
                 />
-                <Button
+                <TouchableHighlight
                     onPress={() => navigate("Homeview", { user: "Nice" })}
-                    title="Home try"
-                />
+                    style={styleBasic.butao}>
+                    <Text>teste</Text>
+                </TouchableHighlight>
             </View>
         );
     }
@@ -52,12 +60,3 @@ export default class App extends React.Component {
         return <SimpleApp />;
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center"
-    }
-});
