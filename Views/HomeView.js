@@ -1,25 +1,71 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Button, Alert } from "react-native";
-import { StackNavigator } from "react-navigation";
+import {
+    StyleSheet,
+    Text,
+    View,
+    Button,
+    Alert,
+    TouchableHighlight,
+    Image,
+    Provider
+} from "react-native";
+import { StackNavigator, TabNavigator } from "react-navigation";
 import styleBasic from "../Styles/Basic";
+import PartialHomeView from "./PartialView/HomePartial";
+import PartialAddEntryView from "./PartialView/AddEntryPartial";
+import PartialProfileView from "./PartialView/ProfilePartial";
+import PartialSeeDataView from "./PartialView/SeeDataPartial";
 
+const AppNavigation = TabNavigator(
+    {
+        Home: { screen: PartialHomeView },
+        AddEntry: { screen: PartialAddEntryView }
+    },
+    { lazy: true }
+);
 
 class HomeView extends React.Component {
     static navigationOptions = ({ navigation }) => ({
-        title: `Chat with ${navigation.state.params.user}`
+        title: "Home",
+        headerStyle: { backgroundColor: "#dbe3f0" },
+        headerTitleStyle: { color: "#FFEB65" }
     });
 
     render() {
-        const { params } = this.props.navigation.state;
-        const { goBack } = this.props.navigation;
-
         return (
             <View style={styleBasic.container}>
-                <Text>Chat with {params.user}</Text>
-                <Button title="Go back" onPress={() => goBack()} />
+                <View style={styleBasic.content}>
+
+                </View>
+                <View style={styleBasic.footer}>
+                    <TouchableHighlight style={styleBasic.footerButao}>
+                        <Image
+                            style={{ width: 50, height: 50 }}
+                            source={require("../Styles/Icons/Home.png")}
+                        />
+                    </TouchableHighlight>
+                    <TouchableHighlight style={styleBasic.footerButao}>
+                        <Image
+                            style={{ width: 50, height: 50 }}
+                            source={require("../Styles/Icons/new_item.png")}
+                        />
+                    </TouchableHighlight>
+                    <TouchableHighlight style={styleBasic.footerButao}>
+                        <Image
+                            style={{ width: 50, height: 50 }}
+                            source={require("../Styles/Icons/Statistics.png")}
+                        />
+                    </TouchableHighlight>
+                    <TouchableHighlight style={styleBasic.footerButao}>
+                        <Image
+                            style={{ width: 50, height: 50 }}
+                            source={require("../Styles/Icons/Personal_data.png")}
+                        />
+                    </TouchableHighlight>
+                </View>
             </View>
         );
     }
 }
 
-export default (HomeView)
+export default HomeView;

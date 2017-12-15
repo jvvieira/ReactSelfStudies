@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { StackNavigator } from "react-navigation";
 import styleBasic from "../Styles/Basic";
+import HomeView from "./HomeView";
 
 class LoginView extends React.Component {
     static navigationOptions = {
@@ -19,6 +20,7 @@ class LoginView extends React.Component {
     };
 
     render() {
+        const { navigate } = this.props.navigation;
         const { goBack } = this.props.navigation;
 
         return (
@@ -41,7 +43,7 @@ class LoginView extends React.Component {
                         <Text style={styleBasic.Text}>Voltar</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
-                        onPress={() => goBack()}
+                        onPress={() => navigate("Home")}
                         style={styleBasic.butao_X_2}
                     >
                         <Text style={styleBasic.Text}>LogaMano!</Text>
@@ -52,4 +54,18 @@ class LoginView extends React.Component {
     }
 }
 
-export default LoginView;
+export const SimpleApp = StackNavigator(
+    {
+        Login: { screen: LoginView },
+        Home: { screen: HomeView }
+    },
+    {
+        mode: "modal"
+    }
+);
+
+export default class App extends React.Component {
+    render() {
+        return <SimpleApp />;
+    }
+}

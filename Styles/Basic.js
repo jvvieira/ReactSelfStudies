@@ -17,6 +17,24 @@ module.exports = StyleSheet.create({
         justifyContent: "space-between",
         flexDirection: 'column',
     },
+    footer: {
+        flex: 1,
+        backgroundColor: "#dbe3f0",
+        width: '100%',
+        flexDirection: "row",
+        justifyContent: "space-between",
+    },
+    footerButao: {
+        alignItems: "center",
+        padding: 3,
+        margin: 3,
+        width: '23%',
+        height: '100%',
+    },
+    content: {
+        flex: 9,
+        width: '100%',
+    },
     container_button: {
         flexDirection: "row",
         justifyContent: "space-between",

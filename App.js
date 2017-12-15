@@ -49,12 +49,11 @@ class HomeScreen extends React.Component {
 export const SimpleApp = StackNavigator(
     {
         Landing: { screen: HomeScreen },
-        Login: { screen: LoginView },
+        Login: { screen: LoginView, navigationOptions: { header: null } },
         NewUser: { screen: NewUserView }
     },
     {
-        mode: "modal",
-        headerMode: "float"
+        mode: "modal"
     }
 );
 
