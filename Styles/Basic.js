@@ -15,29 +15,29 @@ module.exports = StyleSheet.create({
         backgroundColor: "#4872b5",
         alignItems: "center",
         justifyContent: "space-between",
-        flexDirection: 'column',
+        flexDirection: "column"
     },
     footer: {
-        flex: 1,
         backgroundColor: "#dbe3f0",
-        width: '100%',
-        flexDirection: "row",
-        justifyContent: "space-between",
+        height: 70
     },
     footerButao: {
-        alignItems: "center",
-        padding: 3,
-        margin: 3,
-        width: '23%',
+        height: 65,
+        width: 70,
+        paddingBottom: 5
+    },
+    icone:{
         height: '100%',
+        width: '100%',
+        marginBottom: 5,
     },
     content: {
         flex: 9,
-        width: '100%',
+        width: "100%"
     },
     container_button: {
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "space-between"
     },
     butao_X_2: {
         alignItems: "center",
@@ -46,8 +46,8 @@ module.exports = StyleSheet.create({
         margin: 10,
         borderRadius: 10,
         borderWidth: 1,
-        width: '45%',
-        height: 40,
+        width: "45%",
+        height: 40
     },
     notSoBigText: {
         fontSize: 20,
@@ -76,7 +76,7 @@ module.exports = StyleSheet.create({
         padding: 20,
         borderRadius: 2,
         borderWidth: 1,
-        borderColor: "#fff",
+        borderColor: "#fff"
     },
     formText: {
         color: "#0F1826",

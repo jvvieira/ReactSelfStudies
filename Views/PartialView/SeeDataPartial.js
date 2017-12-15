@@ -14,7 +14,7 @@ class SeeDataPartialView extends React.Component {
     render() {
         return (
             <View style={styleBasic.container}>
-                <Text>Profile</Text>
+                <Text>Statistics</Text>
             </View>
         );
     }

@@ -16,56 +16,73 @@ import PartialAddEntryView from "./PartialView/AddEntryPartial";
 import PartialProfileView from "./PartialView/ProfilePartial";
 import PartialSeeDataView from "./PartialView/SeeDataPartial";
 
-const AppNavigation = TabNavigator(
+class HomeView extends React.Component {}
+
+export const tabMenu = TabNavigator(
     {
-        Home: { screen: PartialHomeView },
-        AddEntry: { screen: PartialAddEntryView }
+        Home: {
+            screen: PartialHomeView,
+            navigationOptions: ({ navigation }) => ({
+                title: "Home",
+                path: "/",
+                tabBarIcon: ({ tintColor, focused }) => (
+                    <Image
+                        source={require("../Styles/Icons/Home.png")}
+                        style={styleBasic.icone}
+                    />
+                )
+            })
+        },
+        AddEntry: {
+            screen: PartialAddEntryView,
+            navigationOptions: ({ navigation }) => ({
+                title: "Nova entrada",
+                path: "/",
+                tabBarIcon: ({ tintColor, focused }) => (
+                    <Image
+                        source={require("../Styles/Icons/new_item.png")}
+                        style={styleBasic.icone}
+                    />
+                )
+            })
+        },
+        Statistics: {
+            screen: PartialSeeDataView,
+            navigationOptions: ({ navigation }) => ({
+                title: "Estatísticas",
+                path: "/",
+                tabBarIcon: ({ tintColor, focused }) => (
+                    <Image
+                        source={require("../Styles/Icons/Statistics.png")}
+                        style={styleBasic.icone}
+                    />
+                )
+            })
+        },
+        Profile: {
+            screen: PartialProfileView,
+            navigationOptions: ({ navigation }) => ({
+                title: "Dados pessoais",
+                path: "/",
+                tabBarIcon: ({ tintColor, focused }) => (
+                    <Image
+                        source={require("../Styles/Icons/Personal_data.png")}
+                        style={styleBasic.icone}
+                    />
+                )
+            })
+        }
     },
-    { lazy: true }
+    {
+        tabBarPosition: "bottom",
+        animationEnabled: true,
+        tabBarOptions: {
+            style: styleBasic.footer,
+            iconStyle: styleBasic.footerButao,
+            showIcon: true,
+            showLabel: false
+        }
+    }
 );
 
-class HomeView extends React.Component {
-    static navigationOptions = ({ navigation }) => ({
-        title: "Home",
-        headerStyle: { backgroundColor: "#dbe3f0" },
-        headerTitleStyle: { color: "#FFEB65" }
-    });
-
-    render() {
-        return (
-            <View style={styleBasic.container}>
-                <View style={styleBasic.content}>
-
-                </View>
-                <View style={styleBasic.footer}>
-                    <TouchableHighlight style={styleBasic.footerButao}>
-                        <Image
-                            style={{ width: 50, height: 50 }}
-                            source={require("../Styles/Icons/Home.png")}
-                        />
-                    </TouchableHighlight>
-                    <TouchableHighlight style={styleBasic.footerButao}>
-                        <Image
-                            style={{ width: 50, height: 50 }}
-                            source={require("../Styles/Icons/new_item.png")}
-                        />
-                    </TouchableHighlight>
-                    <TouchableHighlight style={styleBasic.footerButao}>
-                        <Image
-                            style={{ width: 50, height: 50 }}
-                            source={require("../Styles/Icons/Statistics.png")}
-                        />
-                    </TouchableHighlight>
-                    <TouchableHighlight style={styleBasic.footerButao}>
-                        <Image
-                            style={{ width: 50, height: 50 }}
-                            source={require("../Styles/Icons/Personal_data.png")}
-                        />
-                    </TouchableHighlight>
-                </View>
-            </View>
-        );
-    }
-}
-
-export default HomeView;
+export default tabMenu;
