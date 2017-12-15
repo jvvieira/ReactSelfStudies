@@ -76,7 +76,12 @@ export const tabMenu = TabNavigator(
     {
         tabBarPosition: "bottom",
         animationEnabled: true,
+        activeBackgroundColor: '#65A1FF',
         tabBarOptions: {
+            indicatorStyle: {
+                borderBottomColor: "#4872b5",
+                borderBottomWidth: 2
+            },
             style: styleBasic.footer,
             iconStyle: styleBasic.footerButao,
             showIcon: true,

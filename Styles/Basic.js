@@ -65,7 +65,7 @@ module.exports = StyleSheet.create({
     },
     simpleInput: {
         backgroundColor: "#fff",
-        width: 200,
+        width: '100%',
         height: 40,
         padding: 5,
         margin: 2
@@ -73,6 +73,7 @@ module.exports = StyleSheet.create({
     box: {
         margin: 30,
         backgroundColor: "#B2D0FF",
+        width: '80%',
         padding: 20,
         borderRadius: 2,
         borderWidth: 1,
