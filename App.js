@@ -9,6 +9,8 @@ import {
 import { StackNavigator } from "react-navigation";
 import LoginView from "./Views/LoginView";
 import NewUserView from "./Views/NewUserView";
+//import HomeView from "./Views/HomeView";
+import HomeView from "./DataBaseController";
 import styleBasic from "./Styles/Basic";
 
 class HomeScreen extends React.Component {
@@ -20,37 +22,38 @@ class HomeScreen extends React.Component {
 
     render() {
         const { navigate } = this.props.navigation;
-        return (
-            <View style={styleBasic.container}>
-                <View>
-                    <Text style={styleBasic.bigText}>
-                        O que você deseja fazer?
-                    </Text>
-                </View>
-                <View style={styleBasic.container_button}>
-                    <TouchableHighlight
-                        onPress={() => navigate("NewUser")}
-                        style={styleBasic.butao_X_2}
-                    >
-                        <Text style={styleBasic.Text}>Novo cadastro</Text>
-                    </TouchableHighlight>
-                    <TouchableHighlight
-                        onPress={() => navigate("Login")}
-                        style={styleBasic.butao_X_2}
-                    >
-                        <Text style={styleBasic.Text}>Logar-se</Text>
-                    </TouchableHighlight>
-                </View>
-            </View>
-        );
+        //return (
+        //    <View style={styleBasic.container}>
+                // <View>
+                //     <Text style={styleBasic.bigText}>
+                //         O que você deseja fazer?
+                //     </Text>
+                // </View>
+                // <View style={styleBasic.container_button}>
+                //     <TouchableHighlight
+                //         onPress={() => navigate("NewUser")}
+                //         style={styleBasic.butao_X_2}
+                //     >
+                //         <Text style={styleBasic.Text}>Novo cadastro</Text>
+                //     </TouchableHighlight>
+                //     <TouchableHighlight
+                //         onPress={() => navigate("Login")}
+                //         style={styleBasic.butao_X_2}
+                //     >
+                //         <Text style={styleBasic.Text}>Logar-se</Text>
+                //     </TouchableHighlight>
+                // </View>
+        //    </View>
+        //);
     }
 }
 
 export const SimpleApp = StackNavigator(
     {
-        Landing: { screen: HomeScreen },
-        Login: { screen: LoginView, navigationOptions: { header: null } },
-        NewUser: { screen: NewUserView }
+        Home: { screen: HomeView },
+        // Landing: { screen: HomeScreen },
+        // Login: { screen: LoginView, navigationOptions: { header: null } },
+        // NewUser: { screen: NewUserView }
     },
     {
         mode: "modal"
